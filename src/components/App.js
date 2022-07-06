@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import Button from './button';
+import '../styles/App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+	const [time, setTime] = useState(0);
+	const [running, setRunning] = useState(false);
+
+	useEffect(() => {
+		let interval;
+		if (running) {
+			interval = setInterval(() => {
+				setTime((prevTime) => prevTime + 10);
+			}, 10);
+		} else if (!running) {
+			clearInterval(interval);
+		}
+		return () => clearInterval(interval);
+	}, [running]);
+
+	return (
+		<>
+			return (
+			<div className='counter'>
+				<div className='numbers'>
+					<span>{('0' + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
+					<span>{('0' + Math.floor((time / 1000) % 60)).slice(-2)}:</span>
+					<span>{('0' + ((time / 10) % 100)).slice(-2)}</span>
+				</div>
+				<div className='btn-container'>
+          <Button name='Start' onClick={() => setRunning(true)}/>
+          <Button name='Stop' onClick={() => setRunning(false)}/>
+          <Button name='Reset' onClick={() => setTime(0)}/>
+				</div>
+			</div>
+		</>
+	);
+};
 
 export default App;
