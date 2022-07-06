@@ -1,15 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import Button from './button';
 import Display from './display';
+import Modal from './modal';
+import Input from './input';
 
 import '../styles/App.css';
 
 const App = () => {
+	const [hours, setHours] = useState(0);
+	const [minutes, setMinutes] = useState(0);
+	const [seconds, setSeconds] = useState(0);
 	const [resetValue, setResetValue] = useState(260000);
+
 	const [timeA, setTimeA] = useState(resetValue);
 	const [timeB, setTimeB] = useState(resetValue);
 	const [running, setRunning] = useState(false);
 	const [whoActive, setWhoActive] = useState('Player A');
+
+	const [showModal, setshowModal] = useState(false);
 
 	useEffect(() => {
 		let interval;
@@ -51,14 +59,44 @@ const App = () => {
 		}
 	};
 
+	const handleExchange = () => {
+		const newTime = hours * 3600000 + minutes * 60000 + seconds * 1000;
+		setResetValue(newTime);
+		setshowModal((prevValue) => !prevValue);
+	};
+
 	const startStopName = running ? 'Stop' : 'Start';
+
+	const modalContent = (
+		<div className='flex-column'>
+			<div className='input-container'>
+				<Input value={hours} onChange={(e) => setHours(e.target.value)} />
+				<Input value={minutes} onChange={(e) => setMinutes(e.target.value)} />
+				<Input value={seconds} onChange={(e) => setSeconds(e.target.value)} />
+			</div>
+			<Button name='OK' onClick={handleExchange} />
+		</div>
+	);
 
 	return (
 		<>
+			<Button
+				name='Value'
+				onClick={() => setshowModal((prevValue) => !prevValue)}
+			/>
+			<Modal
+				content={modalContent}
+				onClick={() => setshowModal((prevValue) => !prevValue)}
+				show={showModal}
+			/>
 			<div className='counter'>
-				<h3 className='player'>Player A</h3>
+				<h3 className={`${whoActive === 'Player A' ? 'active' : null} player`}>
+					Player A
+				</h3>
 				<Display time={timeA} />
-				<h3 className='player'>Player B</h3>
+				<h3 className={`${whoActive === 'Player B' ? 'active' : null} player`}>
+					Player B
+				</h3>
 				<Display time={timeB} />
 				<div className='btn-container-big'>
 					<Button name='Switch' onClick={switchHandler} />
