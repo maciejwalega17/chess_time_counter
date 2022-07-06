@@ -66,6 +66,9 @@ const App = () => {
 		setHours(0);
 		setMinutes(0);
 		setSeconds(0);
+		setTimeA(newTime);
+		setTimeB(newTime);
+    setRunning(false);
 	};
 
 	const startStopName = running ? 'Stop' : 'Start';
@@ -84,17 +87,17 @@ const App = () => {
 		<div className='flex-column'>
 			<div className='input-container'>
 				<Input
-        title='Hours'
+					title='Hours'
 					value={hours}
 					onChange={(e) => valueChangeHandler(setHours, e.target.value)}
 				/>
 				<Input
-        title='Minutes'
+					title='Minutes'
 					value={minutes}
 					onChange={(e) => valueChangeHandler(setMinutes, e.target.value)}
 				/>
 				<Input
-        title='Seconds'
+					title='Seconds'
 					value={seconds}
 					onChange={(e) => valueChangeHandler(setSeconds, e.target.value)}
 				/>
