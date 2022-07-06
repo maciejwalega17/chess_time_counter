@@ -1,0 +1,16 @@
+.btn {
+	margin: 1px;
+	padding: 5px;
+	color: var(--text-color);
+	text-transform: uppercase;
+	background: none;
+	box-shadow: 0 0 5px var(--btn-color);
+	border: 1px solid var(--btn-color);
+	border-radius: 12px;
+	cursor: pointer;
+}
+
+.btn:hover {
+	box-shadow: 0 0 5px var(--active-color);
+	border-color: var(--active-color);
+}
