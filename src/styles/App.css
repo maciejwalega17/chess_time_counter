@@ -25,3 +25,7 @@ h3 {
 .btn-container-small .btn {
 	width: 80px;
 }
+
+.active {
+	color: red;
+}
