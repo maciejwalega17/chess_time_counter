@@ -1,8 +1,11 @@
 import React from 'react';
 
-const Input = ({ value, onChange, min, max }) => {
+const Input = ({ value, onChange, title }) => {
 	return (
-		<input type='number' value={value} onChange={onChange} min='0' max='59' />
+		<div className='input'>
+			<p className='text-input'>{title}</p>
+			<input type='number' value={value} onChange={onChange} min='0' max='59' />
+		</div>
 	);
 };
 

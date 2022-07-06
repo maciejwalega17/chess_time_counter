@@ -63,16 +63,41 @@ const App = () => {
 		const newTime = hours * 3600000 + minutes * 60000 + seconds * 1000;
 		setResetValue(newTime);
 		setshowModal((prevValue) => !prevValue);
+		setHours(0);
+		setMinutes(0);
+		setSeconds(0);
 	};
 
 	const startStopName = running ? 'Stop' : 'Start';
 
+	const valueChangeHandler = (callback, value) => {
+		if (value > 59) {
+			callback(59);
+		} else if (value < 0) {
+			callback(0);
+		} else {
+			callback(value);
+		}
+	};
+
 	const modalContent = (
 		<div className='flex-column'>
 			<div className='input-container'>
-				<Input value={hours} onChange={(e) => setHours(e.target.value)} />
-				<Input value={minutes} onChange={(e) => setMinutes(e.target.value)} />
-				<Input value={seconds} onChange={(e) => setSeconds(e.target.value)} />
+				<Input
+        title='Hours'
+					value={hours}
+					onChange={(e) => valueChangeHandler(setHours, e.target.value)}
+				/>
+				<Input
+        title='Minutes'
+					value={minutes}
+					onChange={(e) => valueChangeHandler(setMinutes, e.target.value)}
+				/>
+				<Input
+        title='Seconds'
+					value={seconds}
+					onChange={(e) => valueChangeHandler(setSeconds, e.target.value)}
+				/>
 			</div>
 			<Button name='OK' onClick={handleExchange} />
 		</div>
