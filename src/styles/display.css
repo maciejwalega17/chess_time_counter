@@ -1,0 +1,9 @@
+/* @media (max-width: 380px) {
+	.btn {}
+} */
+
+.numbers {
+    color: var(--primary-color);
+    font-size: 36px;
+
+}

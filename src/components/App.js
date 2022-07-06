@@ -5,7 +5,6 @@ import Display from './display';
 import '../styles/App.css';
 
 const App = () => {
-
 	const [resetValue, setResetValue] = useState(260000);
 	const [timeA, setTimeA] = useState(resetValue);
 	const [timeB, setTimeB] = useState(resetValue);
@@ -57,14 +56,16 @@ const App = () => {
 	return (
 		<>
 			<div className='counter'>
-				<p>Player A</p>
+				<h3 className='player'>Player A</h3>
 				<Display time={timeA} />
-				<p>Player B</p>
+				<h3 className='player'>Player B</h3>
 				<Display time={timeB} />
-				<div className='btn-container'>
+				<div className='btn-container-big'>
 					<Button name='Switch' onClick={switchHandler} />
-					<Button name={startStopName} onClick={startStopHandler} />
-					<Button name='Reset' onClick={resetHandler} />
+					<div className='btn-container-small'>
+						<Button name={startStopName} onClick={startStopHandler} />
+						<Button name='Reset' onClick={resetHandler} />
+					</div>
 				</div>
 			</div>
 		</>

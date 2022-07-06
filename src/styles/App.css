@@ -1,0 +1,27 @@
+.counter {
+	position: absolute;
+	top: 25%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 240px;
+	height: 220px;
+	margin: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 5px;
+	border: 1px solid var(--primary-color);
+	border-radius: 25px;
+	box-shadow: 0 0 5px var(--primary-color);
+}
+
+h3 {
+	margin: 0;
+}
+
+.btn-container-big .btn {
+	width: 170px;
+}
+.btn-container-small .btn {
+	width: 80px;
+}
