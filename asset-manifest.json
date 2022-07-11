@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/chess_time_counter/static/css/main.c4261c20.css",
+    "main.js": "/chess_time_counter/static/js/main.b151dfbe.js",
+    "index.html": "/chess_time_counter/index.html",
+    "main.c4261c20.css.map": "/chess_time_counter/static/css/main.c4261c20.css.map",
+    "main.b151dfbe.js.map": "/chess_time_counter/static/js/main.b151dfbe.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c4261c20.css",
+    "static/js/main.b151dfbe.js"
+  ]
+}
