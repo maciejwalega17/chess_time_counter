@@ -68,7 +68,7 @@ const App = () => {
 		setSeconds(0);
 		setTimeA(newTime);
 		setTimeB(newTime);
-    setRunning(false);
+		setRunning(false);
 	};
 
 	const startStopName = running ? 'Stop' : 'Start';
@@ -108,10 +108,12 @@ const App = () => {
 
 	return (
 		<>
-			<Button
-				name='Value'
-				onClick={() => setshowModal((prevValue) => !prevValue)}
-			/>
+			<div className='value-btn'>
+				<Button
+					name='Value'
+					onClick={() => setshowModal((prevValue) => !prevValue)}
+				/>
+			</div>
 			<Modal
 				content={modalContent}
 				onClick={() => setshowModal((prevValue) => !prevValue)}

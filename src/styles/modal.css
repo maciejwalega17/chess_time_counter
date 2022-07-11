@@ -13,6 +13,7 @@
 	background-color: rgba(0, 0, 0, 0.8);
 	z-index: 1;
 }
+
 .modal {
 	position: fixed;
 	top: 50%;
@@ -25,15 +26,30 @@
 	border: 1px solid var(--primary-color);
 }
 
-.modal-container {
-	margin-bottom: 15px;
-}
-
-.modal-btn-container .btn {
+.modal-btn-container .btn,
+.modal-container .btn {
 	width: 100px;
+	margin-top: 10px;
 }
 
 .flex-column {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
+}
+
+.input-container {
+	display: flex;
+}
+
+.input {
+	margin: 2px;
+	font-size: 12px;
+	text-align: center;
+}
+.text-input {
+	margin: 1px;
+}
+input {
+	border: 1px solid black;
 }
